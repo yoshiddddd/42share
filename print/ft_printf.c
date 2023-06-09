@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyoshida <kyoshida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/03 16:34:25 by kyoshida          #+#    #+#             */
-/*   Updated: 2023/06/07 17:01:05 by kyoshida         ###   ########.fr       */
+/*   Created: 2023/06/09 14:48:23 by kyoshida          #+#    #+#             */
+/*   Updated: 2023/06/09 19:11:13 by kyoshida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-#define GET_NEXT_LINE_H
+#include "ft_printf.h"
 
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-#include<unistd.h>
-
-#ifndef BUFFER_SIZE
-#define BUFFER_SIZE 1
-#endif
-char  *get_next_line(int fd);
-size_t	ft_strlen(const char *s);
-char	*ft_strjoin(char const *s1, char const *s2);
-char	*ft_strchr(const char *s, int c);
-
-
-
-#endif
+int 	ft_printf(const char *format, ...)
+{
+	va_list args;
+	
+	
+}
