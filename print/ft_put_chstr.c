@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_put.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyoshida <kyoshida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/09 15:06:55 by kyoshida          #+#    #+#             */
-/*   Updated: 2023/06/12 21:21:54 by kyoshida         ###   ########.fr       */
+/*   Created: 2023/06/11 16:09:51 by kyoshida          #+#    #+#             */
+/*   Updated: 2023/06/12 15:44:31 by kyoshida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <stdarg.h>
-# include <limits.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <string.h>
-# include <unistd.h>
+int 	ft_putchar(char s)
+{
+	write*(1,&s,1);
+	return (1);
+}
+int 	ft_putstr(char *s)
+{
+	int	i;
 
-int		ft_itoa(int n);
-void	ft_putchar(char c);
-void	ft_putstr(char *s);
-void	*ft_calloc(size_t n, size_t size);
-void	*ft_memset(void *buf, int ch, size_t n);
-int	ft_putnbr_fd(int n, int fd);
-
-#endif
+	i = 0;
+	while (s[i] != '\0')
+	{
+		write(1, &s[i], 1);
+		i++;
+	}
+	return(i);
+}

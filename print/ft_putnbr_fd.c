@@ -1,30 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyoshida <kyoshida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/09 15:06:55 by kyoshida          #+#    #+#             */
-/*   Updated: 2023/06/12 21:21:54 by kyoshida         ###   ########.fr       */
+/*   Created: 2023/05/25 20:24:34 by kyoshida          #+#    #+#             */
+/*   Updated: 2023/06/12 21:51:44 by kyoshida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include <limits.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <string.h>
-# include <unistd.h>
+int	ft_putnbr_fd(int n)
+{
+	long	i;
+	int		count;
 
-int		ft_itoa(int n);
-void	ft_putchar(char c);
-void	ft_putstr(char *s);
-void	*ft_calloc(size_t n, size_t size);
-void	*ft_memset(void *buf, int ch, size_t n);
-int	ft_putnbr_fd(int n, int fd);
+	count = 0;
+	i = (long)n;
+	if (i < 0)
+	{
+		count += ft_putchar('-');
+		i *= -1;
+	}
+	if (i > 9)
+	{
+		ft_putnbr_fd(i / 10);
+		ft_putnbr_fd(i % 10);
+	}
+	else
+	{
+		count += ft_putchar(i + '0');
+	}
+	return (count);
+}
 
-#endif
+// int main(void)
+// {
+
+// }
