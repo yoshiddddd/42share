@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoshida <kyoshida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yoshidakazushi <yoshidakazushi@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 14:48:23 by kyoshida          #+#    #+#             */
-/*   Updated: 2023/06/12 18:49:32 by kyoshida         ###   ########.fr       */
+/*   Updated: 2023/06/13 19:38:04 by yoshidakazu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,21 @@ int 	ft_printf(const char *format, ...)
 	int ans;
 	va_start(args,format);
 	ans = ft_output(args,format);
-	
+
 	va_end(args);
+
+	return ans;
+}
+int main(void)
+{
+	int count = 0;
+	int count2 = 0;
+	count =ft_printf("%u", UINT_MAX);
+	printf("\n");
+	count2 = printf("%u", UINT_MAX);
+	printf("\n");
+	printf("%d", count);
+	printf("\n");
+	printf("%d", count2);
+	return (0);
 }

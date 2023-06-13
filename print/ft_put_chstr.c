@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_put.c                                           :+:      :+:    :+:   */
+/*   ft_put_chstr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoshida <kyoshida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yoshidakazushi <yoshidakazushi@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 16:09:51 by kyoshida          #+#    #+#             */
-/*   Updated: 2023/06/12 15:44:31 by kyoshida         ###   ########.fr       */
+/*   Updated: 2023/06/13 11:45:53 by yoshidakazu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 int 	ft_putchar(char s)
 {
-	write*(1,&s,1);
+	write(1,&s,1);
 	return (1);
 }
+
 int 	ft_putstr(char *s)
 {
 	int	i;

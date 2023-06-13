@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_judgment.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoshida <kyoshida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yoshidakazushi <yoshidakazushi@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 13:06:55 by kyoshida          #+#    #+#             */
-/*   Updated: 2023/06/12 21:50:46 by kyoshida         ###   ########.fr       */
+/*   Updated: 2023/06/13 18:43:47 by yoshidakazu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_check(char ident, va_list args)
 
 	count = 0;
 	if (ident == 'c')
-		count = ft_putstr(va_arg(args, char *));
+		count = ft_putchar(va_arg(args, int));
 	else if (ident == 's')
 		count = ft_putstr(va_arg(args, char *));
 	else if (ident == 'd' || ident == 'i')
@@ -26,7 +26,7 @@ int	ft_check(char ident, va_list args)
 	else if (ident == 'p')
 		count = ft_pointconver((unsigned long long)va_arg(args, void *));
 	else if (ident == 'u')
-		count = ft_unsconver(va_arg(args, unsigned long));
+		count = ft_unsconver(va_arg(args, unsigned int));
 	else if (ident == 'x' || ident == 'X')
 		count = ft_hexconver(va_arg(args, unsigned int), ident);
 	else if (ident == '%')
@@ -34,7 +34,7 @@ int	ft_check(char ident, va_list args)
 	return (count);
 }
 
-int	ft_output(va_list args, char *format)
+int	ft_output(va_list args, const char *format)
 {
 	int i;
 	int count;
@@ -53,8 +53,6 @@ int	ft_output(va_list args, char *format)
 			count += ft_putchar(format[i]);
 		}
 		i++;
-		if (format[i] == NULL)
-			return (count);
 	}
 	return (count);
 }

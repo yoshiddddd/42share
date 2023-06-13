@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   libft.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoshida <kyoshida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yoshidakazushi <yoshidakazushi@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 18:34:05 by kyoshida          #+#    #+#             */
-/*   Updated: 2023/06/12 18:50:14 by kyoshida         ###   ########.fr       */
+/*   Updated: 2023/06/13 18:31:48 by yoshidakazu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "ft_printf.h"
 
 void	*ft_memset(void *buf, int ch, size_t n)
 {
@@ -25,21 +27,6 @@ void	*ft_memset(void *buf, int ch, size_t n)
 		n--;
 	}
 	return (buf);
-}
-
-void	*ft_calloc(size_t n, size_t size)
-{
-	unsigned char	*tmp;
-
-	if (n > SIZE_MAX / size)
-		return (NULL);
-	tmp = (unsigned char *)malloc(n * size);
-	if (tmp == NULL)
-		return (NULL);
-	if (n == 0 || size == 0)
-		return (malloc(0));
-	ft_memset(tmp, 0, n * size);
-	return (tmp);
 }
 
 size_t	ft_strlen(const char *s)
