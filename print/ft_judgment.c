@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_judgment.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoshidakazushi <yoshidakazushi@student.    +#+  +:+       +#+        */
+/*   By: kyoshida <kyoshida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 13:06:55 by kyoshida          #+#    #+#             */
-/*   Updated: 2023/06/13 18:43:47 by yoshidakazu      ###   ########.fr       */
+/*   Updated: 2023/06/14 14:27:16 by kyoshida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ int	ft_check(char ident, va_list args)
 
 int	ft_output(va_list args, const char *format)
 {
-	int i;
-	int count;
+	int	i;
+	int	count;
 
 	i = 0;
 	count = 0;
