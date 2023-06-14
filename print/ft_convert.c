@@ -6,11 +6,21 @@
 /*   By: kyoshida <kyoshida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 18:46:05 by kyoshida          #+#    #+#             */
-/*   Updated: 2023/06/14 14:57:52 by kyoshida         ###   ########.fr       */
+/*   Updated: 2023/06/14 20:40:18 by kyoshida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int	ft_charconver(char c, t_flag *flag)
+{
+	int	count;
+
+	count = 0;
+	ft_get_flag(flag,'c');
+	count += ft_putchar(c);
+	return (count - 1);
+}
 
 int	ft_pointconver(unsigned long long p)
 {
@@ -37,7 +47,7 @@ int	ft_hexconver(unsigned int i, char ident)
 
 int	ft_unsconver(unsigned int i)
 {
-	int n;
+	int	n;
 
 	n = ft_putnbr_base((unsigned long long)i, "0123456789");
 	return (n);

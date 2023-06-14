@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_put_chstr.c                                     :+:      :+:    :+:   */
+/*   ft_get_flag.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyoshida <kyoshida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/11 16:09:51 by kyoshida          #+#    #+#             */
-/*   Updated: 2023/06/14 19:00:37 by kyoshida         ###   ########.fr       */
+/*   Created: 2023/06/14 20:32:26 by kyoshida          #+#    #+#             */
+/*   Updated: 2023/06/14 20:42:09 by kyoshida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int 	ft_putchar(char s)
+int 	ft_get_flag(t_flag *flag,char design)
 {
-	write(1,&s,1);
-	return (1);
-}
+	int count;
 
-int 	ft_putstr(char *s)
-{
-	int	i;
+	count = 0;
 
-	i = 0;
-	while (s[i] != '\0')
-	{
-		write(1, &s[i], 1);
-		i++;
-	}
-	return(i);
+	if(flag->plus == 1 && )
 }
