@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoshida <kyoshida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yoshidakazushi <yoshidakazushi@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 14:48:23 by kyoshida          #+#    #+#             */
-/*   Updated: 2023/06/14 19:24:59 by kyoshida         ###   ########.fr       */
+/*   Updated: 2023/06/15 13:35:19 by yoshidakazu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 // {
 // 	va_list	args;
 // 	int		ans;
+	// if(format == NULL)
+	// return -1;
 
 // 	va_start(args, format);
 // 	ans = ft_judgment(args, format);

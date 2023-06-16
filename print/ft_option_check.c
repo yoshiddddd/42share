@@ -1,22 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_flag.c                                      :+:      :+:    :+:   */
+/*   ft_option_check.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoshidakazushi <yoshidakazushi@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/14 20:32:26 by kyoshida          #+#    #+#             */
-/*   Updated: 2023/06/15 09:24:39 by yoshidakazu      ###   ########.fr       */
+/*   Created: 2023/06/15 13:44:55 by yoshidakazu       #+#    #+#             */
+/*   Updated: 2023/06/15 13:45:05 by yoshidakazu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int 	ft_get_flag(va_list args,t_flag *flag,char design)
-{
-	int count;
-
-	count = 0;
-
-	if(flag->plus == 1 && )
-}

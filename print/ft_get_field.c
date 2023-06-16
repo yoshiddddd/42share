@@ -3,13 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_get_field.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoshida <kyoshida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yoshidakazushi <yoshidakazushi@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 20:43:12 by kyoshida          #+#    #+#             */
-/*   Updated: 2023/06/14 20:43:30 by kyoshida         ###   ########.fr       */
+/*   Updated: 2023/06/15 13:32:08 by yoshidakazu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 int 	ft_get_field()
+{
+    
+}

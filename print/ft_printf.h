@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoshida <kyoshida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yoshidakazushi <yoshidakazushi@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 15:06:55 by kyoshida          #+#    #+#             */
-/*   Updated: 2023/06/14 21:22:36 by kyoshida         ###   ########.fr       */
+/*   Updated: 2023/06/15 10:10:46 by yoshidakazu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,10 @@ typedef struct flag
 	int	zero;
 	int	field;
 	int	precision;
-	int	star;
+	int	star_field;
+	int star_field_value;
+	int star_precision;
+	int star_precision_value;
 	int	space;
 	int	sharp;
 	int	plus;
@@ -47,6 +50,8 @@ int		ft_putnbr_base(unsigned long long nb, char *base);
 int		ft_judgment(va_list args, const char *format);
 int		ft_check(char ident, va_list args,t_flag *flag);
 
+//------------flag_function-----------
+t_flag	ft_flag_init(void)
 
 //------------libft_function--------------
 size_t	ft_strlen(const char *s);

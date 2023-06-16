@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_convert.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoshida <kyoshida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yoshidakazushi <yoshidakazushi@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 18:46:05 by kyoshida          #+#    #+#             */
-/*   Updated: 2023/06/14 20:40:18 by kyoshida         ###   ########.fr       */
+/*   Updated: 2023/06/15 13:36:14 by yoshidakazu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_charconver(char c, t_flag *flag)
+int	ft_charconver(va_list args, t_flag *flag,char c)
 {
 	int	count;
 
 	count = 0;
-	ft_get_flag(flag,'c');
+	ft_get_flag(flag,args,c);
 	count += ft_putchar(c);
 	return (count - 1);
 }
@@ -51,4 +51,13 @@ int	ft_unsconver(unsigned int i)
 
 	n = ft_putnbr_base((unsigned long long)i, "0123456789");
 	return (n);
+}
+
+int ft_strconver(char *s)
+{
+	int	count;
+
+	count = 0;
+	count += ft_putstr(s);
+	return (count - 1);
 }
