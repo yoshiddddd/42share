@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.c                                            :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoshida <kyoshida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yoshidakazushi <yoshidakazushi@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 18:34:05 by kyoshida          #+#    #+#             */
-/*   Updated: 2023/06/14 14:40:54 by kyoshida         ###   ########.fr       */
+/*   Updated: 2023/06/18 17:29:30 by yoshidakazu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,3 +25,23 @@ size_t	ft_strlen(const char *s)
 	return (num);
 }
 
+int ft_intlen(int nbr,t_flag *flag)
+{
+	int count;
+
+	count =  0;
+
+	if(nbr<0)
+	{
+			nbr*=-1;
+		// if( flag->minus == 0)
+		// 	count++;
+	}
+	while(nbr!= 0)
+	{
+		nbr=nbr/10;
+		count++;
+	}
+	
+	return (count);
+}

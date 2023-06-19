@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoshida <kyoshida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yoshidakazushi <yoshidakazushi@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 13:14:50 by kyoshida          #+#    #+#             */
-/*   Updated: 2023/06/14 21:21:26 by kyoshida         ###   ########.fr       */
+/*   Updated: 2023/06/16 23:30:00 by yoshidakazu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,13 @@ int	ft_atoi(const char *str)
 	flag = 1;
 	while ((9 <= *str && *str <= 13) || *str == 32)
 		str++;
-	if (*str == '-')
-	{
-		flag *= -1;
-		str++;
-	}
-	else if (*str == '+')
-		str++;
+	// if (*str == '-')
+	// {
+	// 	flag *= -1;
+	// 	str++;
+	// }
+	// else if (*str == '+')
+	// 	str++;
 	num = ft_parsenumber(str, flag);
 	return (num);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoshida <kyoshida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yoshidakazushi <yoshidakazushi@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 11:03:52 by kyoshida          #+#    #+#             */
-/*   Updated: 2023/06/14 14:38:33 by kyoshida         ###   ########.fr       */
+/*   Updated: 2023/06/19 12:35:18 by yoshidakazu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,22 @@ int	ft_putnbr_base(unsigned long long nb, char *base)
 		ft_putnbr_base(nb / (int)totalen, base);
 	}
 	count += ft_putchar(base[nb % (int)totalen]);
-	return (count);
+	return (count+1);
 }
 
+int getnbr_base(unsigned long long nb , char *base)
+{
+	size_t		totalen;
+	static int	count = 0;
+
+	totalen = ft_strlen(base);
+	if (nb >= totalen)
+	{
+		getnbr_base(nb / (int)totalen, base);
+		count ++;
+	}
+	return (count+1);
+}
 // int main(void)
 // {
 // 	ft_putnbr_base("1111112121212121212121212121212121212121",

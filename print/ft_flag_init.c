@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_flag_init.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoshida <kyoshida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yoshidakazushi <yoshidakazushi@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 09:57:22 by yoshidakazu       #+#    #+#             */
-/*   Updated: 2023/06/16 12:00:55 by kyoshida         ###   ########.fr       */
+/*   Updated: 2023/06/19 01:20:11 by yoshidakazu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_flag	ft_flag_init(void)
     flag.minus = 0;
     flag.zero = 0;
     flag.width = 0;
-    flag.precision = 0;
+    flag.precision = -1;
     flag.star_width = 0;
     flag.star_width_value = 0;
     flag.star_precision = 0;

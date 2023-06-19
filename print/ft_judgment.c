@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_judgment.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoshida <kyoshida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yoshidakazushi <yoshidakazushi@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 13:06:55 by kyoshida          #+#    #+#             */
-/*   Updated: 2023/06/16 18:59:36 by kyoshida         ###   ########.fr       */
+/*   Updated: 2023/06/19 12:25:48 by yoshidakazu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_check(char ident, va_list args, t_flag *flag)
 	else if (ident == 'd' || ident == 'i')
 		count = ft_int_write(va_arg(args, int), flag);
 	else if (ident == 'p')
-		count = ft_pointconver((unsigned long long)va_arg(args, void *));
+		count = ft_ptr_write((unsigned long long)va_arg(args, void *),flag);
 	else if (ident == 'u')
 		count = ft_unsconver(va_arg(args, unsigned int));
 	else if (ident == 'x' || ident == 'X')
@@ -42,7 +42,9 @@ char	*ft_flag_check(const char *format, va_list args, t_flag *flag)
 	while (format[i + 1] != '\0')
 	{
 		if (format[i + 1] == '-')
+		{
 			flag->minus = 1;
+		}
 		else if (format[i + 1] == ' ')
 			flag->space = 1;
 		else if (format[i + 1] == '#')
@@ -55,50 +57,56 @@ char	*ft_flag_check(const char *format, va_list args, t_flag *flag)
 			break ;
 		i++;
 	}
-	return ((char *)&format[i]);
+	return ((char *)&format[i+1]);
 }
 
-char	*ft_width_check(char *format, va_list args, t_flag *flag)
+char	*ft_width_check(const char *format, va_list args, t_flag *flag)
 {
 	int		i;
 	char	*chnum;
 	int		ansnum;
 
 	i = 0;
-	if (format[i + 1] == '*')
+	if (format[i ] == '*')
 	{
 		flag->star_width = 1;
 		flag->width = va_arg(args, int);
-		return ((char *)&format[i + 1]);
+		return ((char *)&format[i+1]);
 	}
-	while ('0' <= format[i + 1] && format[i + 1] <= '9')
+	while ('0' <= format[i ] && format[i ] <= '9')
 		i++;
 	chnum = ft_substr(format, 0, i);
 	flag->width = ft_atoi(chnum);
 	free(chnum);
+	chnum =NULL;
 	return ((char *)&format[i]);
 }
 
-char	*ft_precision_check(char *format, va_list args, t_flag *flag)
+char	*ft_precision_check(const char *format, va_list args, t_flag *flag)
 {
 	int		i;
 	char	*chnum;
 	int		ansnum;
 
 	i = 0;
-	if (format[i + 1] == '.')
+	if (format[i ] == '.')
 	{
-		if (format[i + 2] == '*')
+		
+			// printf("%d",flag->precision);
+		if (format[i + 1] == '*')
 		{
-			flag->star_precision = 1;
 			flag->precision = va_arg(args, int);
-			return ((char *)&format[i + 2]);
+			if(flag->precision < 0)
+				flag->precision = 0;
+			return ((char *)&format[i + 1]);
 		}
-		while ('0' <= format[i + 2] && format[i + 2] <= '9')
+		while ('0' <= format[i + 1] && format[i +1] <= '9')
 			i++;
-		chnum = ft_substr(format, 2, i);
+		chnum = ft_substr(format, 1, i);
 		flag->precision = ft_atoi(chnum);
 		free(chnum);
+		chnum = NULL;
+		i++;
 	}
 	return ((char *)&format[i]);
 }
@@ -121,8 +129,9 @@ int	ft_judgment(va_list args, const char *format)
 			format = ft_flag_check(format, args, flag);
 			format = ft_width_check(format, args, flag);
 			format = ft_precision_check(format, args, flag);
-			count += ft_check(*format + 1, args, flag);
-			i++;
+			count += ft_check(*format, args, flag);
+			// printf("%s",va_arg(args, char *));
+			// format++;
 		}
 		else
 			count += ft_putchar(*format);
