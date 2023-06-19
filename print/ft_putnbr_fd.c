@@ -3,37 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoshidakazushi <yoshidakazushi@student.    +#+  +:+       +#+        */
+/*   By: kyoshida <kyoshida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 20:24:34 by kyoshida          #+#    #+#             */
-/*   Updated: 2023/06/19 01:23:34 by yoshidakazu      ###   ########.fr       */
+/*   Updated: 2023/06/19 16:47:24 by kyoshida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putnbr_fd(int n,t_flag *flag)
+void	ft_putnbr_fd(int n, t_flag *flag, int *count)
 {
-	long		i;
-	static int	count = 0;
+	long	i;
+
 	i = (long)n;
-	if(i == 0 && flag->precision >= 0)
-	return 0;
+	if (i == 0 && flag->precision >= 0)
+		return ;
 	if (i < 0)
 		i *= -1;
 	if (i > 9)
 	{
-		ft_putnbr_fd(i / 10,flag);
-		ft_putnbr_fd(i % 10,flag);
+		ft_putnbr_fd(i / 10, flag, count);
+		ft_putnbr_fd(i % 10, flag, count);
 	}
 	else
 	{
-		count += ft_putchar(i + '0');
+		*count += ft_putchar(i + '0');
 	}
-	return (count);
 }
-
-// int main(void)
-// {[]
-
-// }

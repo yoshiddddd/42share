@@ -3,48 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoshidakazushi <yoshidakazushi@student.    +#+  +:+       +#+        */
+/*   By: kyoshida <kyoshida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 11:03:52 by kyoshida          #+#    #+#             */
-/*   Updated: 2023/06/19 12:35:18 by yoshidakazu      ###   ########.fr       */
+/*   Updated: 2023/06/19 19:51:46 by kyoshida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putnbr_base(unsigned long long nb, char *base)
+void	ft_putnbr_base(unsigned long long nb, char *base, int *count,
+		t_flag *flag)
 {
-	size_t		totalen;
-	static int	count;
+	size_t	totalen;
 
-	count = 0;
+	totalen = ft_strlen(base);
+	if (nb == 0 && flag->precision >= 0)
+		return ;
+	if (nb >= totalen)
+	{
+		ft_putnbr_base(nb / (int)totalen, base, count, flag);
+	}
+	*count += ft_putchar(base[nb % (int)totalen]);
+}
+
+void	getnbr_base(unsigned long long nb, char *base, int *num, t_flag *flag)
+{
+	size_t	totalen;
+
+	if (nb == 0 && flag->precision >= 0)
+		(*num)--;
 	totalen = ft_strlen(base);
 	if (nb >= totalen)
 	{
-		ft_putnbr_base(nb / (int)totalen, base);
+		(*num)++;
+		getnbr_base(nb / (int)totalen, base, num, flag);
 	}
-	count += ft_putchar(base[nb % (int)totalen]);
-	return (count+1);
 }
-
-int getnbr_base(unsigned long long nb , char *base)
-{
-	size_t		totalen;
-	static int	count = 0;
-
-	totalen = ft_strlen(base);
-	if (nb >= totalen)
-	{
-		getnbr_base(nb / (int)totalen, base);
-		count ++;
-	}
-	return (count+1);
-}
-// int main(void)
-// {
-// 	ft_putnbr_base("1111112121212121212121212121212121212121",
-			// "0123456789abcdef");
-// 	printf("\n");
-// 	printf("%p", "1111112121212121212121212121212121212121");
-// 	return (0);
-// }

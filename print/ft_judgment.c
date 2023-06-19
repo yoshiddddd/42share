@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_judgment.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoshidakazushi <yoshidakazushi@student.    +#+  +:+       +#+        */
+/*   By: kyoshida <kyoshida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 13:06:55 by kyoshida          #+#    #+#             */
-/*   Updated: 2023/06/19 12:25:48 by yoshidakazu      ###   ########.fr       */
+/*   Updated: 2023/06/19 19:59:41 by kyoshida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,18 @@ int	ft_check(char ident, va_list args, t_flag *flag)
 	else if (ident == 'u')
 		count = ft_unsconver(va_arg(args, unsigned int));
 	else if (ident == 'x' || ident == 'X')
-		count = ft_hexconver(va_arg(args, unsigned int), ident);
+		count = ft_hex_write(va_arg(args, unsigned int), ident,flag);
 	else if (ident == '%')
 		count = ft_putchar(ident);
 	return (count);
 }
 
-char	*ft_flag_check(const char *format, va_list args, t_flag *flag)
+char	*ft_flag_check(const char *format, t_flag *flag)
 {
 	int	i;
 
 	i = 0;
+
 	while (format[i + 1] != '\0')
 	{
 		if (format[i + 1] == '-')
@@ -64,7 +65,6 @@ char	*ft_width_check(const char *format, va_list args, t_flag *flag)
 {
 	int		i;
 	char	*chnum;
-	int		ansnum;
 
 	i = 0;
 	if (format[i ] == '*')
@@ -86,7 +86,6 @@ char	*ft_precision_check(const char *format, va_list args, t_flag *flag)
 {
 	int		i;
 	char	*chnum;
-	int		ansnum;
 
 	i = 0;
 	if (format[i ] == '.')
@@ -118,15 +117,15 @@ int	ft_judgment(va_list args, const char *format)
 	t_flag	*flag;
 	t_flag	flag_init;
 
-	flag_init = ft_flag_init();
-	flag = &flag_init;
 	i = 0;
 	count = 0;
 	while (*format != '\0')
 	{
+	flag_init = ft_flag_init();
+	flag = &flag_init;
 		if (*format == '%')
 		{
-			format = ft_flag_check(format, args, flag);
+			format = ft_flag_check(format, flag);
 			format = ft_width_check(format, args, flag);
 			format = ft_precision_check(format, args, flag);
 			count += ft_check(*format, args, flag);
