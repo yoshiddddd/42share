@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoshida <kyoshida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yoshidakazushi <yoshidakazushi@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 15:06:55 by kyoshida          #+#    #+#             */
-/*   Updated: 2023/06/19 19:59:54 by kyoshida         ###   ########.fr       */
+/*   Updated: 2023/06/20 12:15:17 by yoshidakazu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void		ft_putnbr_base(unsigned long long nb, char *base,int *count,t_flag *flag);
 int	ft_putspace(int len);
 int     put_sign(t_flag *flag,int nbr);
 int put_zeros( int len);
+int put_sharp(t_flag *flag);
 
 //------------judgment_function-----------
 int		ft_judgment(va_list args, const char *format);
@@ -64,6 +65,7 @@ size_t	ft_strlen(const char *s);
 int ft_intlen(int nbr);
 int	ft_atoi(const char *str);
 void getnbr_base(unsigned long long nb , char *base,int *num,t_flag *flag);
+int getnbr_base_len(unsigned long long nb, char *base, t_flag *flag);
 
 //------------write_function--------------
 int	ft_char_write(int args, t_flag *flag);

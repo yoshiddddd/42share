@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_convert.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoshida <kyoshida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yoshidakazushi <yoshidakazushi@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 18:46:05 by kyoshida          #+#    #+#             */
-/*   Updated: 2023/06/19 20:02:08 by kyoshida         ###   ########.fr       */
+/*   Updated: 2023/06/20 12:14:22 by yoshidakazu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ int	ft_int_write(int nbr, t_flag *flag)
 
 	zerocount = 0;
 	count = (int *)malloc(sizeof(int));
+	if(!count)
+		return (-1);
 	*count = 0;
 	if (flag->minus == 1)
 	{
@@ -103,11 +105,14 @@ int	ft_ptr_write(unsigned long long p, t_flag *flag)
 {
 	int	*count;
 	int	*space_num;
+	int tmp;
 
 	count = (int *)malloc(sizeof(int));
 	*count = 0;
 	space_num = (int *)malloc(sizeof(int));
 	*space_num = 1;
+	if(!count || !space_num)
+		return (-1);
 	getnbr_base(p, "0123456789abcdef", space_num, flag);
 	if (flag->minus == 0)
 		*count += ft_putspace(flag->width - *space_num - 2);
@@ -116,7 +121,9 @@ int	ft_ptr_write(unsigned long long p, t_flag *flag)
 	if (flag->minus == 1)
 		*count += ft_putspace(flag->width - *space_num - 2);
 	free(space_num);
-	return (*count);
+	tmp = *count;
+	free(count);
+	return (tmp);
 }
 
 int	ft_hex_write(unsigned int i, char ident, t_flag *flag)
@@ -132,7 +139,15 @@ int	ft_hex_write(unsigned int i, char ident, t_flag *flag)
 		hex = "0123456789abcdef";
 	else
 		hex = "0123456789ABCDEF";
-	// ft_putnbr_base((unsigned long long)i, hex, count);
+
+		if (flag->minus == 1)
+	{
+		*count += put_sharp(flag);
+		*count += put_zeros((flag->precision - getnbr_base_len(i, hex, flag)));
+		ft_putnbr_base((unsigned long long)i, hex, count,flag);
+		*count += ft_putspace(flag->width - *count);
+		// printf("   >>>%d\n",*count);
+	}
 	return (0);
 }
 

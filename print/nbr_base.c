@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kyoshida <kyoshida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yoshidakazushi <yoshidakazushi@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 11:03:52 by kyoshida          #+#    #+#             */
-/*   Updated: 2023/06/19 19:51:46 by kyoshida         ###   ########.fr       */
+/*   Updated: 2023/06/20 12:11:29 by yoshidakazu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,13 @@ void	getnbr_base(unsigned long long nb, char *base, int *num, t_flag *flag)
 		(*num)++;
 		getnbr_base(nb / (int)totalen, base, num, flag);
 	}
+}
+
+int getnbr_base_len(unsigned long long nb, char *base, t_flag *flag)
+{
+	int	num;
+
+	num = 1;
+	getnbr_base(nb, base, &num, flag);
+	return (num);
 }
